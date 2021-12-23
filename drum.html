@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8">
+        <title>Drum Kit</title>
+
+        <!-- W3.CSS css styling -->
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+        <!-- Bootstrap css styling -->
+
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <!-- Popper JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+        <style>
+            .keyStyle {
+                background-color: pink;
+                width:100px;
+                height:100px
+                
+            }
+        </style>
+        <link rel="shortcut icon" type="image/jpg" href="https://img.icons8.com/cute-clipart/64/000000/r--v1.png"/>
+    </head>
+    <body style="background-image: url('assets/img/drum-bg.jpg'); background-repeat: no-repeat; background-size: cover; background-attachment: fixed;">
+        <div class="jumbotron w3-card-4">
+          <h2><b>Drum Kit Project</b></h2>
+        </div>
+
+        <div style="width:fit-content; background-color: rgba(222, 184, 135, 0.185);" class="w3-display-middle w3-margin-top w3-card-4 w3-round-large">
+            <div class="row">
+
+                <div class="col-4 w3-center">
+                    <button onclick="playSound('103')" id="7" class="keyStyle w3-margin-top w3-card-4 w3-round-large w3-margin-left"><h1><b>7</b>
+                    </h1></button>
+                </div>
+    
+                <div class="col-4 w3-center">
+                    <button onclick="playSound('104')" id="8" class="keyStyle w3-margin-top  w3-card-4 w3-round-large"><h1><b>8</b>
+                    </h1></button>
+                </div>
+    
+                <div class="col-4 w3-center">
+                    <button onclick="playSound('105')" id="9" class="keyStyle w3-margin-top w3-margin-right w3-card-4 w3-round-large"><h1><b>9</b>
+                    </h1></button>
+                </div>
+            </div>
+    
+            <div class="row">
+    
+                <div class="col-4 w3-center">
+                    <button onclick="playSound('100')" id="4" class="keyStyle w3-margin-top w3-card-4 w3-round-large w3-margin-left"><h1><b>4</b>
+                    </h1></button>
+                </div>
+    
+                <div class="col-4 w3-center">
+                    <button onclick="playSound('101')" id="5" class="keyStyle w3-margin-top w3-card-4 w3-round-large"><h1><b>5</b>
+                    </h1></button>
+                </div>
+    
+                <div class="col-4 w3-center">
+                    <button onclick="playSound('102')" id="6" class="keyStyle w3-margin-top w3-card-4 w3-round-large w3-margin-right"><h1><b>6</b>
+                    </h1></button>
+                </div>
+            </div>
+    
+            <div class="row">
+    
+                <div class="col-4 w3-center">
+                    <button onclick="playSound('97')" id="1" class="keyStyle w3-margin-top w3-card-4 w3-round-large w3-margin-left w3-margin-bottom"><h1><b>1</b>
+                    </h1></button>
+                </div>
+    
+                <div class="col-4 w3-center">
+                    <button onclick="playSound('98')" id="2" class="keyStyle w3-margin-top w3-card-4 w3-round-large w3-margin-bottom"><h1><b>2</b>
+                    </h1></button>
+                </div>
+    
+                <div class="col-4 w3-center">
+                    <button onclick="playSound('99')" id="3" class="keyStyle w3-margin-top w3-card-4 w3-round-large w3-margin-right w3-margin-bottom"><h1><b>3</b>
+                    </h1></button>
+                </div>
+            </div>
+        </div>
+        
+
+        <audio id="97" src="https://sampleswap.org/samples-ghost/DRUMS%20(SINGLE%20HITS)/Snares/28[kb]ec-sn027.wav.mp3" type="audio/mpeg"></audio>
+        <audio id="98" src="https://sampleswap.org/samples-ghost/DRUMS%20(SINGLE%20HITS)/Claps/74[kb]c1.wav.mp3" type="audio/mpeg"></audio>
+        <audio id="99" src="https://sampleswap.org/samples-ghost/DRUMS%20(SINGLE%20HITS)/Claps/40[kb]c2.wav.mp3" type="audio/mpeg"></audio>
+        <audio id="100" src="https://sampleswap.org/samples-ghost/DRUMS%20(SINGLE%20HITS)/Claps/45[kb]c4.wav.mp3" type="audio/mpeg"></audio>
+        <audio id="101" src="https://sampleswap.org/samples-ghost/DRUMS%20(SINGLE%20HITS)/Claps/106[kb]c5.wav.mp3" type="audio/mpeg"></audio>
+        <audio id="102" src="https://sampleswap.org/samples-ghost/DRUMS%20(SINGLE%20HITS)/Claps/8[kb]clap.wav.mp3" type="audio/mpeg"></audio>
+        <audio id="103" src="https://sampleswap.org/samples-ghost/DRUMS%20(SINGLE%20HITS)/Claps/16[kb]brightclap2.wav.mp3" type="audio/mpeg"></audio>
+        <audio id="104" src="https://sampleswap.org/samples-ghost/DRUMS%20(SINGLE%20HITS)/Claps/147[kb]clap10.wav.mp3" type="audio/mpeg"></audio>
+        <audio id="105" src="https://sampleswap.org/samples-ghost/DRUMS%20(SINGLE%20HITS)/Claps/32[kb]clap808.wav.mp3" type="audio/mpeg"></audio>
+
+        <script>
+            function playSound(code) {
+                const audio=document.getElementById(code);
+                if(!audio) return;
+                audio.currentTime=0;
+                audio.play();
+                var y=code-96;
+                var x=document.getElementById(y);
+                x.style.background="rgba(197, 118, 118, 0.233)";
+                setTimeout(function() {x.style.background="pink";}, 500);
+            }
+
+            window.addEventListener('keydown', function(e) {
+                playSound(e.keyCode);
+            })
+        </script>
+    </body>
+</html>

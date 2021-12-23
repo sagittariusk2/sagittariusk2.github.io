@@ -1,0 +1,74 @@
+<!doctype html>
+
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8">
+    <title>Ritesh Ranjan</title>
+
+    <!-- W3.CSS css styling -->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+    <!-- Bootstrap css styling -->
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <style>
+      .photo-hover:hover {
+        box-shadow:0 8px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+        cursor:pointer
+      }
+    </style>
+    <link rel="shortcut icon" type="image/jpg" href="Picture4.png"/>
+    </head>
+
+    <body>        
+        <div>
+            <a href="bill_cal.html" class="btn w3-card-4 btn-success w3-round-large w3-margin">Bill Calculator</a>
+            <a href="rocky_e_receipt.html" class="btn w3-card-4 btn-success w3-round-large w3-margin">Rocky Bhaiya</a>
+        <div>
+
+          <hr>
+
+        <!-- Load external JavaScript -->
+        <script>
+          $(document).ready(function() {
+            $("#id1").mouseenter(function(){
+              this.className+=" w3-border w3-border-black w3-card-4";
+            });
+            $("#id1").mouseleave(function(){
+              var x=this.className;
+              var y=x.replace(" w3-border w3-border-black w3-card-4", "");
+              this.className=y;
+            });
+
+            $("#id2").mouseenter(function(){
+              this.className+=" w3-border w3-border-black w3-card-4";
+            });
+            $("#id2").mouseleave(function(){
+              var x=this.className;
+              var y=x.replace(" w3-border w3-border-black w3-card-4", "");
+              this.className=y;
+            });
+
+            $("#id3").mouseenter(function(){
+              this.className+=" w3-border w3-border-black w3-card-4";
+            });
+            $("#id3").mouseleave(function(){
+              var x=this.className;
+              var y=x.replace(" w3-border w3-border-black w3-card-4", "");
+              this.className=y;
+            });
+     
+          });
+        </script>
+        
+    </body>
+
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bill Calculator</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <!-- Bootstrap css styling -->
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <style>
+      .photo-hover:hover {
+        box-shadow:0 8px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+        cursor:pointer
+      }
+    </style>
+    <link rel="shortcut icon" type="image/jpg" href="https://img.icons8.com/cute-clipart/64/000000/r--v1.png"/>
+</head>
+<body>
+  <div class="w3-container w3-margin">
+      <button class="btn btn-danger" onclick="history.back();"><< Back</button>
+    </div>
+    <div class="w3-container" >
+      <!-- Header -->
+      <p class="w3-container w3-card-4 w3-center w3-large w3-blue w3-padding w3-round-xxlarge" id="copy"><strong>Welcome To The Bill Calculator : </strong></p>
+
+      <div class="w3-card-4 w3-padding w3-pale-blue w3-round-large w3-center">
+
+          <!-- Input Area -->
+          <div class="w3-bar w3-center">
+
+            <div class="w3-bar-item w3-container">
+              <img src="assets/img/pin.png" alt="pin" style="width:50px; height:40px">
+            </div>
+
+            <div class="w3-bar-item w3-container">
+              <label class="w3-input" for="g_amount">GROSS Amount : &#x20B9;</label>
+              <input class="w3-input w3-border w3-border-blue w3-border-large" type="number" id="g_amount" name="g_amount" placeholder="Amount">
+            </div>
+
+            <div class="w3-bar-item w3-container">
+              <label class="w3-input" for="discount">DISCOUNT : &#x20B9;</label>
+              <input class="w3-input w3-border w3-border-blue" type="number" id="discount" name="discount" placeholder="Discount">
+
+            </div>
+
+            <div class="w3-bar-item w3-container">
+              <label class="w3-input" for="cgst">CGST % : </label>
+              <input class="w3-input w3-border w3-border-blue" type="number" id="cgst" name="cgst" placeholder="CGST %">
+            </div>
+
+            <div class="w3-bar-item w3-container">
+              <label class="w3-input" for="sgst">SGST % : </label>
+              <input class="w3-input w3-border w3-border-blue" type="number" id="sgst" name="sgst" placeholder="SGST %">
+            </div>
+
+            <div class="w3-bar-item w3-container">
+              <img src="assets/img/pin.png" alt="pin" style="width:50px; height:40px">
+            </div>
+          </div>
+
+      </div>
+
+        <!-- Calculate Button -->
+        <div class="w3-center" style="width:100%">
+          <button class="w3-btn w3-margin w3-card-4 w3-yellow w3-round-large" onclick="calculateFunction()">Calculate</button>
+        </div>
+
+        <!-- Result Area -->
+        <div class="w3-card-4 w3-padding w3-round-large w3-pale-green w3-animate-zoom" id="final_show" style="display: none">
+
+          <!-- Result Header Bar -->
+          <div class="w3-row w3-center">
+            <img src="assets/img/pin.png" alt="pin" style="width:50px; height:40px">
+          </div>
+
+          <div class="w3-row w3-center">
+            <span onclick="closeResult()" class="w3-col w3-card-4 w3-btn w3-right w3-large w3-padding w3-margin w3-red w3-round large" style="width:50px;">&times</span>
+            <p class="w3-rest w3-card-4 w3-green w3-large w3-padding w3-center w3-round-large">The Calculated results are : </p>
+          </div>
+
+          <div class="w3-bar w3-container">
+
+            <div class="w3-bar-item w3-container">
+              <label class="w3-input" >GROSS Amount : &#x20B9;</label>
+              <input class="w3-input w3-border w3-border-green" id="g_amount_f" readonly="readonly">
+            </div>
+
+            <div class="w3-bar-item w3-container">
+              <label class="w3-input" >DISCOUNT : &#x20B9;</label>
+              <input class="w3-input w3-border w3-border-green" id="discount_f" readonly="readonly">
+            </div>
+
+            <div class="w3-bar-item w3-container">
+              <label class="w3-input" >TAXABLE VALUE : &#x20B9;</label>
+              <input class="w3-input w3-border w3-border-green" id="taxable_f" readonly="readonly">
+            </div>
+
+            <div class="w3-bar-item w3-container">
+              <label class="w3-input">CGST : &#x20B9;</label>
+              <input class="w3-input w3-border w3-border-green" id="cgst_f" readonly="readonly">
+            </div>
+
+            <div class="w3-bar-item w3-container">
+              <label class="w3-input">SGST : &#x20B9;</label>
+              <input class="w3-input w3-border w3-border-green" id="sgst_f" readonly="readonly">
+            </div>
+
+            <div class="w3-bar-item w3-container">
+              <label class="w3-input">IGST : &#x20B9;</label>
+              <input class="w3-input w3-border w3-border-green" id="igst_f" readonly="readonly">
+            </div>
+
+            <div class="w3-bar-item w3-container">
+              <label class="w3-input">TOTAL : &#x20B9;</label>
+              <input class="w3-input w3-border w3-border-green" id="total_f" readonly="readonly">
+            </div>
+
+          </div>
+        </div>
+
+
+        <script>
+
+          function closeResult() {
+            document.getElementById("final_show").style.display="none";
+
+          }
+          function calculateFunction() {
+            document.getElementById("final_show").style.display = "block";
+            document.getElementById("final_show").scrollIntoView(true);
+
+            var g_amoun = parseFloat(document.getElementById("g_amount").value);
+            var discoun = parseFloat(document.getElementById("discount").value);
+            var cgst_j = parseInt(document.getElementById("cgst").value);
+            var sgst_j = parseInt(document.getElementById("sgst").value);
+
+            var total = g_amoun - discoun;
+
+            var taxable_value = (total*100) / (100+cgst_j+sgst_j);
+
+            var cgst_value = (taxable_value*cgst_j)/100;
+            var sgst_value = (taxable_value*sgst_j)/100;
+            var igst_value = cgst_value + sgst_value;
+
+
+            document.getElementById("g_amount_f").value = g_amoun.toFixed(2);
+            document.getElementById("discount_f").value = discoun.toFixed(2);
+            document.getElementById("taxable_f").value = taxable_value.toFixed(2);
+            document.getElementById("cgst_f").value = cgst_value.toFixed(3);
+            document.getElementById("sgst_f").value = sgst_value.toFixed(3);
+            document.getElementById("igst_f").value = igst_value.toFixed(2);
+            document.getElementById("total_f").value = total.toFixed(2);
+          }
+      </script>
+
+    </div>
+</body>
+</html>

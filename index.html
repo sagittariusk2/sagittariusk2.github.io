@@ -633,6 +633,48 @@
     </div>
   </section><!-- End Achievement Section -->
 
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
+    import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyCebuzmYuDkvqtSKQ9pcGAvQxHiN5NPhAE",
+      authDomain: "portfolio-4beeb.firebaseapp.com",
+      projectId: "portfolio-4beeb",
+      storageBucket: "portfolio-4beeb.appspot.com",
+      messagingSenderId: "979029342444",
+      appId: "1:979029342444:web:eee78a41d061ad7be14dc9"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+
+    function send_email() {
+      let name = document.getElementById("name").value;
+      let email = document.getElementById("email").value;
+      let subject = document.getElementById("subject").value;
+      let message = document.getElementById("message").value;
+      console.log("name : "+name+"\nemail : "+email+"\nsubject : "+subject+"\nmessage : "+message);
+
+      saveContactInfo(name, email, subject, message);
+    }
+
+    function saveContactInfo(name, email, subject, message) {
+        // let newContactInfo = contactInfo.push();\
+        const db = getDatabase();
+        set(ref(db, 'client/'), {
+            sender_name : name,
+            sender_email: email,
+            sender_subject:subject,
+            sender_message: message
+        })
+    };
+  </script>
+  <script src="app.js"></script>
   <!-- ======= Contact Section ======= -->
   <section id="contact" class="paralax-mf footer-paralax bg-image sect-mt4 route" style="background-image: url(assets/img/overlay-bg.jpg)">
     <div class="overlay-mf"></div>
@@ -649,7 +691,7 @@
                     </h5>
                   </div>
                   <div>
-                    <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                    <!-- <form class="contact-form"> -->
                       <div class="row">
                         <div class="col-md-12 mb-3">
                           <div class="form-group">
@@ -668,19 +710,19 @@
                         </div>
                         <div class="col-md-12">
                           <div class="form-group">
-                            <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+                            <textarea class="form-control" name="message" rows="5" placeholder="Message" id="message" required></textarea>
                           </div>
                         </div>
                         <div class="col-md-12 text-center my-3">
                           <div class="loading">Loading</div>
-                          <div class="error-message"></div>
+                          <div class="error-message">Error</div>
                           <div class="sent-message">Your message has been sent. Thank you!</div>
                         </div>
                         <div class="col-md-12 text-center">
-                          <button type="submit" class="button button-a button-big button-rouded">Send Message</button>
+                          <button onclick="module.send_email()" class="button button-a button-big button-rouded">Send Message</button>
                         </div>
                       </div>
-                    </form>
+                    <!-- </form> -->
                   </div>
                 </div>
                 <div class="col-md-6">
@@ -741,12 +783,10 @@
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
-  <script src="assets/vendor/purecounter/purecounter.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="assets/vendor/typed.js/typed.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
